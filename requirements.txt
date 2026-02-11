@@ -1,0 +1,8 @@
+numpy
+matplotlib
+opencv-python
+scikit-image
+tqdm
+jupyter
+notebook
+numba
