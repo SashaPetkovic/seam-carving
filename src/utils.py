@@ -1,5 +1,4 @@
 import cv2
-import matplotlib.pyplot as plt
 import os
 
 def read_image_rgb(file_path):
@@ -27,19 +26,3 @@ def read_image_rgb(file_path):
     image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
 
     return image_rgb
-
-
-def show_image(img, title="Image", figsize=(10, 6)):
-    """
-    Helper function to display an image using Matplotlib with axes turned off.
-
-    Args:
-        img (numpy.ndarray): The RGB image to display.
-        title (str): The title of the plot.
-        figsize (tuple): The size of the figure (width, height).
-    """
-    plt.figure(figsize=figsize)
-    plt.imshow(img)
-    plt.title(title)
-    plt.axis('off') # Hide the axes for a cleaner view
-    plt.show()
