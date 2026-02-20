@@ -74,7 +74,7 @@ def plot_energy_maps_with_image(image, en_map1, en_map2, en_map1_title, en_map2_
     plt.show()
 
 def plot_three_images(image1, title1, image2, title2, image3, title3):
-    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(20, 7), layout='tight')
+    _, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(20, 7), layout='tight')
 
     ax1.imshow(image1)
     ax1.set_title(title1)
