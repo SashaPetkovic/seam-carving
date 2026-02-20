@@ -55,7 +55,7 @@ def draw_seams(img, seams, color=(255, 0, 0)):
     return viz
 
 def plot_energy_maps_with_image(image, en_map1, en_map2, en_map1_title, en_map2_title):
-    fig, axes = plt.subplots(1, 3, figsize=(22, 8))
+    fig, axes = plt.subplots(1, 3, figsize=(22, 8), layout='tight')
 
     axes[0].imshow(image)
     axes[0].set_title("Original Image")
@@ -71,11 +71,10 @@ def plot_energy_maps_with_image(image, en_map1, en_map2, en_map1_title, en_map2_
     axes[2].axis('off')
     fig.colorbar(heatmap_entropy, ax=axes[2], fraction=0.046, pad=0.04)
 
-    plt.tight_layout()
     plt.show()
 
 def plot_three_images(image1, title1, image2, title2, image3, title3):
-    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(20, 7))
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(20, 7), layout='tight')
 
     ax1.imshow(image1)
     ax1.set_title(title1)
@@ -89,11 +88,10 @@ def plot_three_images(image1, title1, image2, title2, image3, title3):
     ax3.set_title(title3)
     ax3.axis('off')
 
-    plt.tight_layout()
     plt.show()
 
 def plot_two_images(image1, title1, image2, title2):
-    fig, (ax_original, ax_carved) = plt.subplots(1, 2, figsize=(15, 8))
+    _, (ax_original, ax_carved) = plt.subplots(1, 2, figsize=(15, 8))
 
     ax_original.imshow(image1)
     ax_original.set_title(title1)
