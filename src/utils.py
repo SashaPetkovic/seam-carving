@@ -1,6 +1,7 @@
 import cv2
 import os
 import numpy as np
+import matplotlib.pyplot as plt
 
 def read_image_rgb(file_path):
     """
@@ -52,3 +53,54 @@ def draw_seams(img, seams, color=(255, 0, 0)):
     for seam in seams:
         viz[rows, seam] = color
     return viz
+
+def plot_energy_maps_with_image(image, en_map1, en_map2, en_map1_title, en_map2_title):
+    fig, axes = plt.subplots(1, 3, figsize=(22, 8))
+
+    axes[0].imshow(image)
+    axes[0].set_title("Original Image")
+    axes[0].axis('off')
+
+    heatmap_e1 = axes[1].imshow(en_map1, cmap='inferno')
+    axes[1].set_title(en_map1_title)
+    axes[1].axis('off')
+    fig.colorbar(heatmap_e1, ax=axes[1], fraction=0.046, pad=0.04)
+
+    heatmap_entropy = axes[2].imshow(en_map2, cmap='inferno')
+    axes[2].set_title(en_map2_title)
+    axes[2].axis('off')
+    fig.colorbar(heatmap_entropy, ax=axes[2], fraction=0.046, pad=0.04)
+
+    plt.tight_layout()
+    plt.show()
+
+def plot_three_images(image1, title1, image2, title2, image3, title3):
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(20, 7))
+
+    ax1.imshow(image1)
+    ax1.set_title(title1)
+    ax1.axis('off')
+
+    ax2.imshow(image2)
+    ax2.set_title(title2)
+    ax2.axis('off')
+
+    ax3.imshow(image3)
+    ax3.set_title(title3)
+    ax3.axis('off')
+
+    plt.tight_layout()
+    plt.show()
+
+def plot_two_images(image1, title1, image2, title2):
+    fig, (ax_original, ax_carved) = plt.subplots(1, 2, figsize=(15, 8))
+
+    ax_original.imshow(image1)
+    ax_original.set_title(title1)
+    ax_original.axis('off')
+
+    ax_carved.imshow(image2)
+    ax_carved.set_title(title2)
+    ax_carved.axis('off')
+
+    plt.show()
