@@ -1,5 +1,6 @@
 import cv2
 import os
+import numpy as np
 
 def read_image_rgb(file_path):
     """
@@ -30,3 +31,24 @@ def read_image_rgb(file_path):
     image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
 
     return image_rgb
+
+
+
+def draw_seams(img, seams, color=(255, 0, 0)):
+    """
+    Draws collected seams on the original image for visualization.
+    Fully vectorized — no explicit row loop.
+    
+    Args:
+        img (np.ndarray): Input image of shape (H, W, 3).
+        seams (list of np.ndarray): List of seam paths, each of shape (H,).
+        color (tuple): RGB color for seam visualization. Default: (255, 0, 0) red.
+    
+    Returns:
+        np.ndarray: Image copy with seams overlaid, shape (H, W, 3).
+    """
+    viz = img.copy()
+    rows = np.arange(img.shape[0])
+    for seam in seams:
+        viz[rows, seam] = color
+    return viz
