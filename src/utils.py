@@ -55,6 +55,16 @@ def draw_seams(img, seams, color=(255, 0, 0)):
     return viz
 
 def plot_energy_maps_with_image(image, en_map1, en_map2, en_map1_title, en_map2_title):
+    """
+    Displays original image alongside two energy maps with colorbars.
+    
+    Args:
+        image (np.ndarray): Original image of shape (H, W, 3).
+        en_map1 (np.ndarray): First energy map of shape (H, W).
+        en_map2 (np.ndarray): Second energy map of shape (H, W).
+        en_map1_title (str): Title for the first energy map.
+        en_map2_title (str): Title for the second energy map.
+    """
     fig, axes = plt.subplots(1, 3, figsize=(22, 8), layout='tight')
 
     axes[0].imshow(image)
@@ -74,6 +84,17 @@ def plot_energy_maps_with_image(image, en_map1, en_map2, en_map1_title, en_map2_
     plt.show()
 
 def plot_three_images(image1, title1, image2, title2, image3, title3):
+    """
+    Displays three images side by side with titles.
+    
+    Args:
+        image1 (np.ndarray): First image.
+        title1 (str): Title for the first image.
+        image2 (np.ndarray): Second image.
+        title2 (str): Title for the second image.
+        image3 (np.ndarray): Third image.
+        title3 (str): Title for the third image.
+    """
     _, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(20, 7), layout='tight')
 
     ax1.imshow(image1)
@@ -91,6 +112,15 @@ def plot_three_images(image1, title1, image2, title2, image3, title3):
     plt.show()
 
 def plot_two_images(image1, title1, image2, title2):
+    """
+    Displays two images side by side with titles.
+    
+    Args:
+        image1 (np.ndarray): First image.
+        title1 (str): Title for the first image.
+        image2 (np.ndarray): Second image.
+        title2 (str): Title for the second image.
+    """
     _, (ax_original, ax_carved) = plt.subplots(1, 2, figsize=(15, 8))
 
     ax_original.imshow(image1)
